@@ -35,6 +35,12 @@ Les images sont stockées dans un espace de stockage compatible S3.
 Le backend utilise la bibliothèque Python Celery pour envoyer des tâches à exécuter au worker via une file de message.
 
 \section{Ce que nous avons réalisé}
+
+Vous trouverez un repository git du projet ici :
+\begin{center}
+    https://github.com/tototriou/projet-cloud
+\end{center}
+ 
 Vous trouverez dans ce rapport un résumé de toutes les commandes et déploiments que nous avons réalisé. Les chapitres sont plus ou moins succint en fonction du temps et de la réussite de chacun.
 Nous avons déployer l application en local chacun des composants marchaient sans problème mais sans déploiement nomad et consul.
 Nous ne savons pas si le projet fonctionne avec Nomad et Consul car nous avons des conflits avec un autre groupe qui a fait buguer Nomad et nous n avons pas réussi à retravailler dessus depuis dans des délais raisonable. Nous avons donc fait en sorte que le projet fonctionne en local, chaque docker indépendamment fonctionnait, mais nous n avons pas essayé de les faire marcher ensemble. Vous trouverez donc dans ce fichier la documentation du projet et les explications de ce que nous avons fait. Dans le dépôt Git, les fichiers que nous avons ajoutés sont dans les dossiers "src", "conf\_nomad\_consul", "web" et "api".

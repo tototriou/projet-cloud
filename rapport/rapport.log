@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.11)  20 MAY 2023 12:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.11)  20 MAY 2023 12:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -59,60 +59,55 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
 Chapter 1.
-
-Overfull \hbox (6.08385pt too wide) in paragraph at lines 38--41
-\OT1/cmr/m/n/10 Vous trou-verez dans ce rap-port un r^^Sesum^^Se de toutes les com-man-des et d^^Seploiments
- []
-
 [2
 
-]
+] [3]
 Chapter 2.
-[3
+[4
 
 ]
 Chapter 3.
-[4
+[5
 
 ]
 Chapter 4.
 
-Overfull \hbox (2.72415pt too wide) in paragraph at lines 90--91
+Overfull \hbox (2.72415pt too wide) in paragraph at lines 96--97
 []\OT1/cmtt/m/n/10 launch[]borie.sh \OT1/cmr/m/n/10 : per-met de re-con-fig-urer enti^^Rerement la ma-chine virtuelle
  []
 
 
-Overfull \hbox (64.72388pt too wide) in paragraph at lines 93--94
+Overfull \hbox (64.72388pt too wide) in paragraph at lines 99--100
 \OT1/cmr/m/n/10 com-mande \OT1/cmtt/m/n/10 nomad job run projet-cloud-virt/conf[]nomad[]consul/conf-nomad.hcl\OT1/cmr/m/n/10 ,
- []
-
-[5
-
-]
-Chapter 5.
-
-Overfull \hbox (10.30565pt too wide) in paragraph at lines 103--104
-\OT1/cmr/m/n/10 Nous avons r^^Secup^^Ser^^Se la con-fig-u-ra-tion Con-sul d^^Sej^^Ra pr^^Sesente dans le dossier \OT1/cmtt/m/n/10 consul.d
- []
-
-
-Overfull \hbox (6.38905pt too wide) in paragraph at lines 122--123
-\OT1/cmr/m/n/10 Nous avons r^^Secup^^Ser^^Se la con-fig-u-ra-tion No-mad d^^Sej^^Ra pr^^Sesente dans le dossier \OT1/cmtt/m/n/10 nomad.d
  []
 
 [6
 
-] [7]
-Chapter 6.
-[8
-
 ]
-Chapter 7.
+Chapter 5.
+
+Overfull \hbox (10.30565pt too wide) in paragraph at lines 109--110
+\OT1/cmr/m/n/10 Nous avons r^^Secup^^Ser^^Se la con-fig-u-ra-tion Con-sul d^^Sej^^Ra pr^^Sesente dans le dossier \OT1/cmtt/m/n/10 consul.d
+ []
+
+
+Overfull \hbox (6.38905pt too wide) in paragraph at lines 128--129
+\OT1/cmr/m/n/10 Nous avons r^^Secup^^Ser^^Se la con-fig-u-ra-tion No-mad d^^Sej^^Ra pr^^Sesente dans le dossier \OT1/cmtt/m/n/10 nomad.d
+ []
+
+[7
+
+] [8]
+Chapter 6.
 [9
 
 ]
-Chapter 8.
+Chapter 7.
 [10
+
+]
+Chapter 8.
+[11
 
 ] (./rapport.aux) ) 
 Here is how much of TeX's memory you used:
@@ -124,10 +119,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  34i,5n,38p,710b,155s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on rapport.pdf (11 pages, 105701 bytes).
+Output written on rapport.pdf (12 pages, 106024 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 74 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
