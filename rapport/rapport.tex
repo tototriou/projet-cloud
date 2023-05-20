@@ -36,15 +36,15 @@ Le backend utilise la bibliothèque Python Celery pour envoyer des tâches à ex
 
 \section{Ce que nous avons réalisé}
 Vous trouverez dans ce rapport un résumé de toutes les commandes et déploiments que nous avons réalisé. Les chapitres sont plus ou moins succint en fonction du temps et de la réussite de chacun.
-Nous avons déployer l'application en local chacun des composants marchaient sans problème mais sans déploiement nomad et consul.
-Nous ne savons pas si le projet fonctionne avec Nomad et Consul car nous avons des conflits avec un autre groupe qui a fait buguer Nomad et nous n'avons pas réussi à retravailler dessus depuis dans des délais raisonable. Nous avons donc fait en sorte que le projet fonctionne en local, chaque docker indépendamment fonctionnait, mais nous n'avons pas essayé de les faire marcher ensemble. Vous trouverez donc dans ce fichier la documentation du projet et les explications de ce que nous avons fait. Dans le dépôt Git, les fichiers que nous avons ajoutés sont dans les dossiers "src", "conf\_nomad\_consul", "web" et "api".
+Nous avons déployer l application en local chacun des composants marchaient sans problème mais sans déploiement nomad et consul.
+Nous ne savons pas si le projet fonctionne avec Nomad et Consul car nous avons des conflits avec un autre groupe qui a fait buguer Nomad et nous n avons pas réussi à retravailler dessus depuis dans des délais raisonable. Nous avons donc fait en sorte que le projet fonctionne en local, chaque docker indépendamment fonctionnait, mais nous n avons pas essayé de les faire marcher ensemble. Vous trouverez donc dans ce fichier la documentation du projet et les explications de ce que nous avons fait. Dans le dépôt Git, les fichiers que nous avons ajoutés sont dans les dossiers "src", "conf\_nomad\_consul", "web" et "api".
 
 % Nouvelle page
 \newpage
 
 % Chapitre 2
 \chapter{Dockerfile}
-Les fichiers Dockerfile sont écrits dans le dossier "web" pour le frontend et dans le dossier "api" pour le worker et le backend. Nous avons eu du mal à réaliser le Dockerfile pour le backend et le worker car Poetry nous a donné du fil à retordre ainsi que les variables d'environnement. Nous avons également eu beaucoup de mal à cadrer le projet pour comprendre le nombre de Dockerfile à réaliser et quoi déployer sur chaque conteneur.
+Les fichiers Dockerfile sont écrits dans le dossier "web" pour le frontend et dans le dossier "api" pour le worker et le backend. Nous avons eu du mal à réaliser le Dockerfile pour le backend et le worker car Poetry nous a donné du fil à retordre ainsi que les variables d environnement. Nous avons également eu beaucoup de mal à cadrer le projet pour comprendre le nombre de Dockerfile à réaliser et quoi déployer sur chaque conteneur.
 Exemple pour le web :
 \begin{verbatim}
 FROM node:latest    
@@ -59,7 +59,7 @@ RUN npm run build .
 
 CMD ["npm" , "run", "start"]
 \end{verbatim}
-Ici on récupère l'image de node, on se place dans le dossier de l'application, on copie le contenu du dossier courant dans le conteneur, on expose le port 3000, on installe les dépendances, on build l'application et on lance l'application.
+Ici on récupère l image de node, on se place dans le dossier de l application, on copie le contenu du dossier courant dans le conteneur, on expose le port 3000, on installe les dépendances, on build l application et on lance l application.
 Pour le worker et le backend le fichier est un peu plus compliqué mais le principe reste le même.
 % Nouvelle page
 \newpage
@@ -100,7 +100,7 @@ Dans le dossier "src", 4 scripts Bash sont présents :
 \chapter{Configuration Nomad et Consul}
 
 \section{Consul}
-Nous avons récupéré la configuration Consul déjà présente dans le dossier \texttt{consul.d} de la machine virtuelle partagée "borie" et nous l'avons modifiée pour la mettre sur les machines virtuelles "wacken" et "republique" de la manière suivante :
+Nous avons récupéré la configuration Consul déjà présente dans le dossier \texttt{consul.d} de la machine virtuelle partagée "borie" et nous l avons modifiée pour la mettre sur les machines virtuelles "wacken" et "republique" de la manière suivante :
 
 Pour "republique" :
 \begin{itemize}
@@ -116,10 +116,10 @@ Pour "wacken" :
     \item \texttt{bootstrap\_expect = 3}
 \end{itemize}
 
-Pour "borie", aucune modification n'a été faite, à part le \texttt{bootstrap\_expect} qui est passé à 3.
+Pour "borie", aucune modification n a été faite, à part le \texttt{bootstrap\_expect} qui est passé à 3.
 
 \section{Nomad}
-Nous avons récupéré la configuration Nomad déjà présente dans le dossier \texttt{nomad.d} de la machine virtuelle partagée "borie" et nous l'avons modifiée pour la mettre sur les machines virtuelles "wacken" et "republique" de la manière suivante :
+Nous avons récupéré la configuration Nomad déjà présente dans le dossier \texttt{nomad.d} de la machine virtuelle partagée "borie" et nous l avons modifiée pour la mettre sur les machines virtuelles "wacken" et "republique" de la manière suivante :
 
 \newpage
 Pour "republique" :
@@ -158,20 +158,20 @@ client {
 }
 \end{verbatim}
 
-Nous avons eu un problème de regroupement des clusters avec un autre groupe, ce qui a fait buguer Nomad, et nous n'avons pas réussi à retravailler dessus depuis. Mais avant cela, nous arrivions à déployer le bon nombre de machines virtuelles et de conteneurs.
+Nous avons eu un problème de regroupement des clusters avec un autre groupe, ce qui a fait buguer Nomad, et nous n avons pas réussi à retravailler dessus depuis. Mais avant cela, nous arrivions à déployer le bon nombre de machines virtuelles et de conteneurs.
 
 % Nouvelle page
 \newpage
 
 % Chapitre 6
 \chapter{HAProxy}
-Le HAProxy est là pour gérer le load balancing. D'après ce que nous avons vu, nous pouvons le déployer sur le frontend ou le backend en fonction de nos besoins.
+Le HAProxy est là pour gérer le load balancing. D après ce que nous avons vu, nous pouvons le déployer sur le frontend ou le backend en fonction de nos besoins.
 
-L'exécution de HAProxy sur Nomad permet de le gérer en tant que travail Nomad, ce qui facilite la gestion des tâches et des mises à l'échelle dans le cluster Nomad. Cela peut être utile si nous avons déjà une infrastructure basée sur Nomad et que nous souhaitons centraliser la gestion de tous les services.
+L exécution de HAProxy sur Nomad permet de le gérer en tant que travail Nomad, ce qui facilite la gestion des tâches et des mises à l échelle dans le cluster Nomad. Cela peut être utile si nous avons déjà une infrastructure basée sur Nomad et que nous souhaitons centraliser la gestion de tous les services.
 
-L'exécution de HAProxy sur Consul tire parti des fonctionnalités de service discovery de Consul, ce qui simplifie la configuration du load balancing en utilisant les informations de service enregistrées dans Consul. Cela peut être utile si nous utilisons Consul pour la découverte des services.
+L exécution de HAProxy sur Consul tire parti des fonctionnalités de service discovery de Consul, ce qui simplifie la configuration du load balancing en utilisant les informations de service enregistrées dans Consul. Cela peut être utile si nous utilisons Consul pour la découverte des services.
 
-Nous avons donc décidé, en fonction de l'état d'avancement du projet et du temps qu'il nous reste, de le déployer sur Consul.
+Nous avons donc décidé, en fonction de l état d avancement du projet et du temps qu il nous reste, de le déployer sur Consul.
 
 La configuration se trouve dans le fichier \texttt{haproxy.cfg}.
 
@@ -180,17 +180,17 @@ La configuration se trouve dans le fichier \texttt{haproxy.cfg}.
 
 % Chapitre 7
 \chapter{Keepalived}
-Keepalived est installé sur chacune des machines afin d'assurer une redondance des services en cas de panne d'une des machines. La configuration est quasiment la même pour chacune des machines et se trouve dans les fichiers nommés \texttt{keepalived\_vm.conf}.
+Keepalived est installé sur chacune des machines afin d assurer une redondance des services en cas de panne d une des machines. La configuration est quasiment la même pour chacune des machines et se trouve dans les fichiers nommés \texttt{keepalived\_vm.conf}.
 
-La différence qui se trouve dans ces configurations réside au niveau de l'état, où nous trouvons un MASTER (la machine virtuelle partagée "borie") et deux BACKUP (les machines virtuelles "republique" et "wacken").
+La différence qui se trouve dans ces configurations réside au niveau de l état, où nous trouvons un MASTER (la machine virtuelle partagée "borie") et deux BACKUP (les machines virtuelles "republique" et "wacken").
 
-Nous utilisons l'adresse virtuelle donnée par le professeur : 172.16.3.0/16
+Nous utilisons l adresse virtuelle donnée par le professeur : 172.16.3.0/16
 
 % Nouvelle page
 \newpage
 
 % Chapitre 8
 \chapter{Conclusion}
-En conclusion, malgré les difficultés rencontrées avec les conflits et les problèmes de configuration, nous avons réussi à faire fonctionner les différentes parties du projet en local. Cependant, nous n'avons pas pu les faire marcher ensemble en raison des problèmes avec Nomad. Malgré cela, nous avons documenté toutes les étapes que nous avons suivies et les configurations que nous avons réalisées. Nous espérons que ces informations seront utiles pour la suite du projet.
+En conclusion, malgré les difficultés rencontrées avec les conflits et les problèmes de configuration, nous avons réussi à faire fonctionner les différentes parties du projet en local. Cependant, nous n avons pas pu les faire marcher ensemble en raison des problèmes avec Nomad. Malgré cela, nous avons documenté toutes les étapes que nous avons suivies et les configurations que nous avons réalisées. Nous espérons que ces informations seront utiles pour la suite du projet.
 
 \end{document}
