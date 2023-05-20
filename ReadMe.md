@@ -141,3 +141,5 @@ La configuration est quasiment la même pour chacune des machines, et se trouve 
 La différence qui se trouve dans ces configurations se trouve au niveau de l'état, ou nous trouvons un MASTER (la vm partagée bohrie) et deux BACKUP (les vm Republique et Wacken)
 
 Nous utilisons l'adresse virtuelle donnée par le professeur : 172.16.3.0/16
+
+Pour le sujet vierge : https://github.com/sandhose/projet-cloud-virt
