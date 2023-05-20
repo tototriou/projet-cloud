@@ -50,7 +50,7 @@ dans le dossier "src", 4 scripts bash sont présents :
 - launch_all.sh se connecte sur la vm borie et lance la commande :
 
 ```bash
-nomad job run projet-cloud-virt/conf_nomad_consul/conf-nomad.hcl
+nomad job run projet-cloud/conf_nomad_consul/conf-nomad.hcl
 ```
 qui permet de lancer les jobs nomad sur les vm. Il est possible dans ce script en enlevant les commentaires de lancer les 3 scripts précédants.
 
